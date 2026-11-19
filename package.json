@@ -1,0 +1,83 @@
+{
+  "name": "getcookie-mcp",
+  "version": "1.1.0",
+  "mcpName": "co.getcookies/getcookie-mcp",
+  "description": "Official GetCookies MCP server: set up a GDPR/CCPA cookie consent banner from Claude, Cursor or any MCP client. Add a site, scan cookies, configure Google Consent Mode v2, get the install code, verify it and run a Reject all test.",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "getcookie-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean",
+    "dev": "tsup src/index.ts --format esm --watch",
+    "prepublishOnly": "npm run build",
+    "test": "vitest run",
+    "e2e": "node scripts/e2e.mjs"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "modelcontextprotocol",
+    "claude",
+    "claude-desktop",
+    "claude-code",
+    "cursor",
+    "ai-agents",
+    "cookie-consent",
+    "cookie-banner",
+    "consent-management",
+    "cmp",
+    "gdpr",
+    "eprivacy",
+    "ccpa",
+    "privacy",
+    "cookie-scanner",
+    "google-consent-mode",
+    "consent-mode-v2",
+    "gtm",
+    "ga4",
+    "getcookies"
+  ],
+  "author": "GetCookies (Getia AS)",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3",
+    "vitest": "^4.1.12"
+  },
+  "overrides": {
+    "ajv": "^8.20.0",
+    "fast-uri": "^4.1.4",
+    "hono": "^4.13.5",
+    "ip-address": ">=10.7.4 <11",
+    "path-to-regexp": "^8.4.2",
+    "picomatch": "^4.0.4",
+    "qs": "^6.16.0",
+    "rollup": "^4.61.1",
+    "proxy-addr": ">=2.0.8 <3",
+    "zod": ">=4.6.7 <5",
+    "body-parser": ">=2.4.0 <3"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "homepage": "https://getcookies.co/integrations/claude-code",
+  "bugs": {
+    "url": "https://github.com/getplatform/getcookie-mcp/issues",
+    "email": "support@getcookies.co"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/getplatform/getcookie-mcp.git"
+  }
+}
