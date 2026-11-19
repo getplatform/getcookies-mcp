@@ -1,9 +1,9 @@
-# getcookie-mcp
+# getcookies-mcp
 
 Set up a cookie consent banner from Claude, and prove that "Reject all" really rejects.
 
-`getcookie-mcp` is the official MCP server for [GetCookies](https://getcookies.co), a cookie
-consent platform (CMP) by Getia AS. Your AI assistant can add a website, scan its cookies,
+`getcookies-mcp` is the official MCP server for [GetCookies](https://getcookies.co), a cookie
+consent platform (CMP). Your AI assistant can add a website, scan its cookies,
 configure a GDPR/CCPA banner with Google Consent Mode v2, hand you the one-line install code,
 check that it is live and run a Reject all test, in one conversation.
 
@@ -20,7 +20,7 @@ check that it is live and run a Reject all test, in one conversation.
 **Claude Code**
 
 ```bash
-claude mcp add getcookies -e GETCOOKIE_API_KEY=gcpat_... -- npx -y getcookie-mcp
+claude mcp add getcookies -e GETCOOKIE_API_KEY=gcpat_... -- npx -y getcookies-mcp
 ```
 
 **Claude Desktop** (`claude_desktop_config.json`), **Cursor** (`~/.cursor/mcp.json`) and other
@@ -31,7 +31,7 @@ clients that use the `mcpServers` format:
   "mcpServers": {
     "getcookies": {
       "command": "npx",
-      "args": ["-y", "getcookie-mcp"],
+      "args": ["-y", "getcookies-mcp"],
       "env": { "GETCOOKIE_API_KEY": "gcpat_..." }
     }
   }
@@ -114,6 +114,13 @@ or other tokens, cannot delete anything, and can be revoked at any time at
 |----------|----------|---------|
 | `GETCOOKIE_API_KEY` | Yes: a personal access token starting with `gcpat_` | |
 | `GETCOOKIE_API_URL` | No | `https://api.getcookies.co` |
+
+## Upgrading from `getcookie-mcp`
+
+This package was published as `getcookie-mcp` up to version 1.1.0. That name is deprecated:
+replace `getcookie-mcp` with `getcookies-mcp` in your client configuration. The token and
+`GETCOOKIE_API_KEY` stay the same, and a global install still provides a `getcookie-mcp` command
+so existing setups keep working.
 
 ## Links
 

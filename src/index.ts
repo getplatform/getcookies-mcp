@@ -4,7 +4,7 @@ import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { CallToolRequestSchema, ListToolsRequestSchema } from '@modelcontextprotocol/sdk/types.js'
 import { TOOLS, errorMessage, planRequest, type JsonObject } from './tools.js'
 
-const VERSION = '1.1.0'
+const VERSION = '1.1.1'
 const TOKEN = process.env.GETCOOKIE_API_KEY || process.env.GETCOOKIE_ACCESS_TOKEN
 const API_URL = (process.env.GETCOOKIE_API_URL || 'https://api.getcookies.co').replace(/\/+$/, '')
 const REQUEST_TIMEOUT_MS = 120_000
@@ -25,7 +25,7 @@ async function call(name: string, args: JsonObject | undefined): Promise<unknown
   const plan = planRequest(name, args)
   const headers: Record<string, string> = {
     Accept: 'application/json',
-    'User-Agent': `getcookie-mcp/${VERSION}`,
+    'User-Agent': `getcookies-mcp/${VERSION}`,
   }
   if (plan.body) headers['Content-Type'] = 'application/json'
   if (plan.authenticated) headers.Authorization = `Bearer ${TOKEN}`
@@ -47,7 +47,7 @@ async function call(name: string, args: JsonObject | undefined): Promise<unknown
   return data
 }
 
-const server = new Server({ name: 'getcookie-mcp', version: VERSION }, { capabilities: { tools: {} } })
+const server = new Server({ name: 'getcookies-mcp', version: VERSION }, { capabilities: { tools: {} } })
 
 server.setRequestHandler(ListToolsRequestSchema, async () => ({ tools: TOOLS }))
 
@@ -64,7 +64,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
 async function main() {
   await server.connect(new StdioServerTransport())
-  console.error(`getcookie-mcp ${VERSION} connected to ${API_URL}`)
+  console.error(`getcookies-mcp ${VERSION} connected to ${API_URL}`)
 }
 
 main().catch((error) => {

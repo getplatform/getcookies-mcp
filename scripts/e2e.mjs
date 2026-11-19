@@ -12,7 +12,7 @@ if (!process.env.GETCOOKIE_API_KEY || !domain) {
   process.exit(2)
 }
 
-const client = new Client({ name: 'getcookie-mcp-e2e', version: '1.0.0' })
+const client = new Client({ name: 'getcookies-mcp-e2e', version: '1.0.0' })
 await client.connect(
   new StdioClientTransport({
     command: process.execPath,

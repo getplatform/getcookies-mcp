@@ -1,11 +1,12 @@
 {
-  "name": "getcookie-mcp",
-  "version": "1.1.0",
-  "mcpName": "co.getcookies/getcookie-mcp",
+  "name": "getcookies-mcp",
+  "version": "1.1.1",
+  "mcpName": "co.getcookies/getcookies-mcp",
   "description": "Official GetCookies MCP server: set up a GDPR/CCPA cookie consent banner from Claude, Cursor or any MCP client. Add a site, scan cookies, configure Google Consent Mode v2, get the install code, verify it and run a Reject all test.",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
+    "getcookies-mcp": "dist/index.js",
     "getcookie-mcp": "dist/index.js"
   },
   "scripts": {
@@ -40,7 +41,11 @@
     "ga4",
     "getcookies"
   ],
-  "author": "GetCookies (Getia AS)",
+  "author": {
+    "name": "GetCookies",
+    "email": "support@getcookies.co",
+    "url": "https://getcookies.co"
+  },
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.32.0"
@@ -72,12 +77,12 @@
     "README.md"
   ],
   "homepage": "https://getcookies.co/integrations/claude-code",
-  "bugs": {
-    "url": "https://github.com/getplatform/getcookie-mcp/issues",
-    "email": "support@getcookies.co"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/getplatform/getcookie-mcp.git"
+    "url": "git+https://github.com/getplatform/getcookies-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/getplatform/getcookies-mcp/issues",
+    "email": "support@getcookies.co"
   }
 }
